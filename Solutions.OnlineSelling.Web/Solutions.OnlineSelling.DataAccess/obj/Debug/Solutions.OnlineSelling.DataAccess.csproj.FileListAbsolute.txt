@@ -1,0 +1,13 @@
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\bin\Debug\Solutions.OnlineSelling.DataAccess.dll.config
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\bin\Debug\Solutions.OnlineSelling.DataAccess.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\bin\Debug\Solutions.OnlineSelling.DataAccess.pdb
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\bin\Debug\EntityFramework.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\bin\Debug\Solutions.OnlineSelling.Model.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\bin\Debug\Solutions.OnlineSelling.Model.pdb
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\bin\Debug\Solutions.OnlineSelling.Model.dll.config
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\bin\Debug\EntityFramework.xml
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\obj\Debug\Solutions.OnlineSelling.DataAccess.csprojResolveAssemblyReference.cache
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\obj\Debug\Solutions.OnlineSelling.DataAccess.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.DataAccess\obj\Debug\Solutions.OnlineSelling.DataAccess.pdb

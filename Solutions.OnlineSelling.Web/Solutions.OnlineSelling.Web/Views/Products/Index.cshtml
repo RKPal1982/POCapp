@@ -1,0 +1,145 @@
+﻿@model IEnumerable<Solutions.OnlineSelling.Model.TblProduct>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<div id="div1">
+    @Html.BeginForm("Index", "Products", FormMethod.Post, new { @class = "form-horizontal", role = "form" })
+    {
+
+    @foreach (var item in Model)
+    {
+        @Html.DisplayFor(modelItem => item.ProductId)
+
+        <div id="@("package" + item.ProductId)" class="accordion-toggle">@item.Name</div>
+
+    }
+
+    @Html.Action("GetPaging", "Products", new { CurrentPage = (@ViewBag.CurrentPageNumber == null ? 0 : (int)@ViewBag.CurrentPageNumber), PageSize = (@ViewBag.PageSize == null ? 0 : (int)@ViewBag.PageSize), TotalRecords = (@ViewBag.TotalRecords == null ? 0 : ((int)@ViewBag.TotalRecords)) })
+
+    }
+</div>
+<div class="form-group">
+    <label class="control-label" for="FUUserProfilePic">Profile Picture</label><p><small></small></p>
+    <input type="file" id="FUUserProfilePic" class="filestyle btn-primary"
+           onchange="showimagepreview(this,'Imageprw','ErrorProfilePic')" />
+</div>
+<div class="form-group">
+    <p>
+        <span id="ErrorProfilePic" style="color: red;"></span>
+        <img id="Imageprw" imageurl="~/images/user_default.png" height="100" />
+    </p>
+</div>
+
+<script type="text/javascript">
+    //Image Preview Functions
+    function showimagepreview(input, PreviewImageID, ErrorSpanID) {
+        //debugger;
+        var rType = checkfile(input);
+        if (rType == true) {
+            if (input.files && input.files[0]) {
+                var filerdr = new FileReader();
+                filerdr.onload = function (e) {
+                    $("[id$=" + PreviewImageID + "]").attr('src', e.target.result);
+                }
+                filerdr.readAsDataURL(input.files[0]);
+            }
+        }
+        else {
+            $(":file").filestyle('clear');
+        }
+        return rType;
+    }
+
+    function checkfile(input, ErrorSpanID) {
+
+        var file = getNameFromPath($("[id$=" + input.id + "]").val());
+        if (file != null) {
+            var extension = file.substr((file.lastIndexOf('.') + 1));
+            switch (extension) {
+                case 'jpg':
+                case 'JPG':
+                case 'png':
+                case 'PNG':
+                case 'gif':
+                case 'GIF':
+                    flag = true;
+                    break;
+                default:
+                    flag = false;
+            }
+        }
+        if (flag == false) {
+            $("[id$=" + ErrorSpanID + "]").text("You can upload only jpg,png,gif extension file");
+            return false;
+        }
+        return flag;
+    }
+
+    function getNameFromPath(strFilepath) {
+        var objRE = new RegExp(/([^\/\\]+)$/);
+        var strName = objRE.exec(strFilepath);
+        if (strName == null) {
+            return null;
+        }
+        else {
+            return strName[0];
+        }
+    }
+    //End Image Preview Functions
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        if (Notification.permission !== "granted") {
+            Notification.requestPermission();
+        }
+
+    });
+
+    function customnotify(title, desc, url) {
+
+        if (Notification.permission !== "granted") {
+            Notification.requestPermission();
+        }
+        else {
+            var notification = new Notification(title, {
+                icon: 'http://localhost:57731/images/logo.png',
+                body: desc,
+            });
+
+            /* Remove the notification from Notification Center when clicked.*/
+            notification.onclick = function () {
+                //window.open(url);
+            };
+
+            /* Callback function when the notification is closed. */
+            notification.onclose = function () {
+                console.log('Notification closed');
+            };
+
+        }
+    }
+
+
+    customnotify('Ecommerce', 'Welcome to Product listing page', '#')
+
+
+        (function ($) {
+            var element = $('#div1'),
+                originalY = element.offset().top;
+
+            // Space between element and top of screen (when scrolling)
+            var topMargin = 100;
+            // Should probably be set in CSS; but here just for emphasis
+            element.css('position', 'relative');
+            $(window).on('scroll', function (event) {
+                var scrollTop = $(window).scrollTop();
+                element.stop(false, false).animate({
+                    top: scrollTop < originalY
+                        ? 0
+                        : scrollTop - originalY + topMargin
+                }, 0);
+
+            });
+        })(jQuery);
+</script>

@@ -1,0 +1,10 @@
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Model\bin\Debug\Solutions.OnlineSelling.Model.dll.config
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Model\bin\Debug\Solutions.OnlineSelling.Model.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Model\bin\Debug\Solutions.OnlineSelling.Model.pdb
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Model\bin\Debug\EntityFramework.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Model\bin\Debug\EntityFramework.xml
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Model\obj\Debug\Solutions.OnlineSelling.Model.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Model\obj\Debug\Solutions.OnlineSelling.Model.pdb
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Model\obj\Debug\Solutions.OnlineSelling.Model.csprojResolveAssemblyReference.cache

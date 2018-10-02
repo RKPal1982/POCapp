@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SolutionsOnlineSellingModelStoreContainer" CdmEntityContainer="SolutionsOnlineSellingEntities">
+    <EntitySetMapping Name="TblCategory">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblCategory">
+        <MappingFragment StoreEntitySet="TblCategory">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblManufacturer">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblManufacturer">
+        <MappingFragment StoreEntitySet="TblManufacturer">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblProduct">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblProduct">
+        <MappingFragment StoreEntitySet="TblProduct">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="WebPrice" ColumnName="WebPrice" />
+          <ScalarProperty Name="ActualPrice" ColumnName="ActualPrice" />
+          <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblProductCategoryMapping">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblProductCategoryMapping">
+        <MappingFragment StoreEntitySet="TblProductCategoryMapping">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblVendors">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblVendors">
+        <MappingFragment StoreEntitySet="TblVendors">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCalendar">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblCalendar">
+        <MappingFragment StoreEntitySet="TblCalendar">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="EventEnd" ColumnName="EventEnd" />
+          <ScalarProperty Name="EventStart" ColumnName="EventStart" />
+          <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLCalendarGallery">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TBLCalendarGallery">
+        <MappingFragment StoreEntitySet="TBLCalendarGallery">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ImageDescription" ColumnName="ImageDescription" />
+          <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="GalleryId" ColumnName="GalleryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatMessageDetail">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.ChatMessageDetail">
+        <MappingFragment StoreEntitySet="ChatMessageDetail">
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatPrivateMessageDetails">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.ChatPrivateMessageDetails">
+        <MappingFragment StoreEntitySet="ChatPrivateMessageDetails">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ChatToEmailID" ColumnName="ChatToEmailID" />
+          <ScalarProperty Name="MasterEmailID" ColumnName="MasterEmailID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatPrivateMessageMaster">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.ChatPrivateMessageMaster">
+        <MappingFragment StoreEntitySet="ChatPrivateMessageMaster">
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatUserDetail">
+      <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.ChatUserDetail">
+        <MappingFragment StoreEntitySet="ChatUserDetail">
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

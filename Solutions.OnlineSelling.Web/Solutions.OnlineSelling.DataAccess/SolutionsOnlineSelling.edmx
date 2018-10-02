@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SolutionsOnlineSellingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ChatMessageDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="EmailID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ChatPrivateMessageDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MasterEmailID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChatToEmailID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ChatPrivateMessageMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmailID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ChatUserDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConnectionId" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmailID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblCalendar">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="EventDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="EventStart" Type="datetime" Nullable="false" />
+          <Property Name="EventEnd" Type="datetime" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBLCalendarGallery">
+          <Key>
+            <PropertyRef Name="GalleryId" />
+          </Key>
+          <Property Name="GalleryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="800" Nullable="false" />
+          <Property Name="ImageTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="ImageDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Icon" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblManufacturer">
+          <Key>
+            <PropertyRef Name="ManufacturerId" />
+          </Key>
+          <Property Name="ManufacturerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ShortDescription" Type="varchar" MaxLength="200" />
+          <Property Name="LongDescription" Type="varchar(max)" />
+          <Property Name="ActualPrice" Type="float" Nullable="false" />
+          <Property Name="WebPrice" Type="float" />
+          <Property Name="VendorId" Type="int" Nullable="false" />
+          <Property Name="ManufacturerId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblProductCategoryMapping">
+          <Key>
+            <PropertyRef Name="ProductCategoryId" />
+          </Key>
+          <Property Name="ProductCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TblVendors">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TBLCalendarGallery_TblCalendar">
+          <End Role="TblCalendar" Type="Self.TblCalendar" Multiplicity="1" />
+          <End Role="TBLCalendarGallery" Type="Self.TBLCalendarGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="EventId" />
+            </Principal>
+            <Dependent Role="TBLCalendarGallery">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProduct_TblManufacturer">
+          <End Role="TblManufacturer" Type="Self.TblManufacturer" Multiplicity="1" />
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblManufacturer">
+              <PropertyRef Name="ManufacturerId" />
+            </Principal>
+            <Dependent Role="TblProduct">
+              <PropertyRef Name="ManufacturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProduct_TblVendors">
+          <End Role="TblVendors" Type="Self.TblVendors" Multiplicity="1" />
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblVendors">
+              <PropertyRef Name="VendorId" />
+            </Principal>
+            <Dependent Role="TblProduct">
+              <PropertyRef Name="VendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductCategoryMapping_TblCategory">
+          <End Role="TblCategory" Type="Self.TblCategory" Multiplicity="1" />
+          <End Role="TblProductCategoryMapping" Type="Self.TblProductCategoryMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="TblProductCategoryMapping">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductCategoryMapping_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1" />
+          <End Role="TblProductCategoryMapping" Type="Self.TblProductCategoryMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="TblProductCategoryMapping">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SolutionsOnlineSellingModelStoreContainer">
+          <EntitySet Name="ChatMessageDetail" EntityType="Self.ChatMessageDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChatPrivateMessageDetails" EntityType="Self.ChatPrivateMessageDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChatPrivateMessageMaster" EntityType="Self.ChatPrivateMessageMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChatUserDetail" EntityType="Self.ChatUserDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCalendar" EntityType="Self.TblCalendar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCalendarGallery" EntityType="Self.TBLCalendarGallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCategory" EntityType="Self.TblCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblManufacturer" EntityType="Self.TblManufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProduct" EntityType="Self.TblProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProductCategoryMapping" EntityType="Self.TblProductCategoryMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblVendors" EntityType="Self.TblVendors" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLCalendarGallery_TblCalendar" Association="Self.FK_TBLCalendarGallery_TblCalendar">
+            <End Role="TblCalendar" EntitySet="TblCalendar" />
+            <End Role="TBLCalendarGallery" EntitySet="TBLCalendarGallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProduct_TblManufacturer" Association="Self.FK_TblProduct_TblManufacturer">
+            <End Role="TblManufacturer" EntitySet="TblManufacturer" />
+            <End Role="TblProduct" EntitySet="TblProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProduct_TblVendors" Association="Self.FK_TblProduct_TblVendors">
+            <End Role="TblVendors" EntitySet="TblVendors" />
+            <End Role="TblProduct" EntitySet="TblProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductCategoryMapping_TblCategory" Association="Self.FK_TblProductCategoryMapping_TblCategory">
+            <End Role="TblCategory" EntitySet="TblCategory" />
+            <End Role="TblProductCategoryMapping" EntitySet="TblProductCategoryMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductCategoryMapping_TblProduct" Association="Self.FK_TblProductCategoryMapping_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProduct" />
+            <End Role="TblProductCategoryMapping" EntitySet="TblProductCategoryMapping" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SolutionsOnlineSellingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SolutionsOnlineSellingEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="TblCategory" EntityType="SolutionsOnlineSellingModel.TblCategory" />
+          <EntitySet Name="TblManufacturer" EntityType="SolutionsOnlineSellingModel.TblManufacturer" />
+          <EntitySet Name="TblProduct" EntityType="SolutionsOnlineSellingModel.TblProduct" />
+          <EntitySet Name="TblProductCategoryMapping" EntityType="SolutionsOnlineSellingModel.TblProductCategoryMapping" />
+          <EntitySet Name="TblVendors" EntityType="SolutionsOnlineSellingModel.TblVendors" />
+          <AssociationSet Name="FK_TblCategory_TblCategory" Association="SolutionsOnlineSellingModel.FK_TblCategory_TblCategory">
+            <End Role="TblCategory" EntitySet="TblCategory" />
+            <End Role="TblCategory1" EntitySet="TblCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductCategoryMapping_TblCategory" Association="SolutionsOnlineSellingModel.FK_TblProductCategoryMapping_TblCategory">
+            <End Role="TblCategory" EntitySet="TblCategory" />
+            <End Role="TblProductCategoryMapping" EntitySet="TblProductCategoryMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProduct_TblManufacturer" Association="SolutionsOnlineSellingModel.FK_TblProduct_TblManufacturer">
+            <End Role="TblManufacturer" EntitySet="TblManufacturer" />
+            <End Role="TblProduct" EntitySet="TblProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProduct_TblVendors" Association="SolutionsOnlineSellingModel.FK_TblProduct_TblVendors">
+            <End Role="TblVendors" EntitySet="TblVendors" />
+            <End Role="TblProduct" EntitySet="TblProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductCategoryMapping_TblProduct" Association="SolutionsOnlineSellingModel.FK_TblProductCategoryMapping_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProduct" />
+            <End Role="TblProductCategoryMapping" EntitySet="TblProductCategoryMapping" />
+          </AssociationSet>
+          <EntitySet Name="TblCalendar" EntityType="SolutionsOnlineSellingModel.TblCalendar" />
+          <EntitySet Name="TBLCalendarGallery" EntityType="SolutionsOnlineSellingModel.TBLCalendarGallery" />
+          <AssociationSet Name="FK_TBLCalendarGallery_TblCalendar" Association="SolutionsOnlineSellingModel.FK_TBLCalendarGallery_TblCalendar">
+            <End Role="TblCalendar" EntitySet="TblCalendar" />
+            <End Role="TBLCalendarGallery" EntitySet="TBLCalendarGallery" />
+          </AssociationSet>
+          <EntitySet Name="ChatMessageDetail" EntityType="SolutionsOnlineSellingModel.ChatMessageDetail" />
+          <EntitySet Name="ChatPrivateMessageDetails" EntityType="SolutionsOnlineSellingModel.ChatPrivateMessageDetails" />
+          <EntitySet Name="ChatPrivateMessageMaster" EntityType="SolutionsOnlineSellingModel.ChatPrivateMessageMaster" />
+          <EntitySet Name="ChatUserDetail" EntityType="SolutionsOnlineSellingModel.ChatUserDetail" />
+        </EntityContainer>
+        <EntityType Name="TblCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblCategory1" Relationship="SolutionsOnlineSellingModel.FK_TblCategory_TblCategory" FromRole="TblCategory" ToRole="TblCategory1" />
+          <NavigationProperty Name="TblCategory2" Relationship="SolutionsOnlineSellingModel.FK_TblCategory_TblCategory" FromRole="TblCategory1" ToRole="TblCategory" />
+          <NavigationProperty Name="TblProductCategoryMapping" Relationship="SolutionsOnlineSellingModel.FK_TblProductCategoryMapping_TblCategory" FromRole="TblCategory" ToRole="TblProductCategoryMapping" />
+        </EntityType>
+        <EntityType Name="TblManufacturer">
+          <Key>
+            <PropertyRef Name="ManufacturerId" />
+          </Key>
+          <Property Name="ManufacturerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblProduct" Relationship="SolutionsOnlineSellingModel.FK_TblProduct_TblManufacturer" FromRole="TblManufacturer" ToRole="TblProduct" />
+        </EntityType>
+        <EntityType Name="TblProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ShortDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LongDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ActualPrice" Type="Double" Nullable="false" />
+          <Property Name="WebPrice" Type="Double" />
+          <Property Name="VendorId" Type="Int32" Nullable="false" />
+          <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblManufacturer" Relationship="SolutionsOnlineSellingModel.FK_TblProduct_TblManufacturer" FromRole="TblProduct" ToRole="TblManufacturer" />
+          <NavigationProperty Name="TblVendors" Relationship="SolutionsOnlineSellingModel.FK_TblProduct_TblVendors" FromRole="TblProduct" ToRole="TblVendors" />
+          <NavigationProperty Name="TblProductCategoryMapping" Relationship="SolutionsOnlineSellingModel.FK_TblProductCategoryMapping_TblProduct" FromRole="TblProduct" ToRole="TblProductCategoryMapping" />
+        </EntityType>
+        <EntityType Name="TblProductCategoryMapping">
+          <Key>
+            <PropertyRef Name="ProductCategoryId" />
+          </Key>
+          <Property Name="ProductCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="TblCategory" Relationship="SolutionsOnlineSellingModel.FK_TblProductCategoryMapping_TblCategory" FromRole="TblProductCategoryMapping" ToRole="TblCategory" />
+          <NavigationProperty Name="TblProduct" Relationship="SolutionsOnlineSellingModel.FK_TblProductCategoryMapping_TblProduct" FromRole="TblProductCategoryMapping" ToRole="TblProduct" />
+        </EntityType>
+        <EntityType Name="TblVendors">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblProduct" Relationship="SolutionsOnlineSellingModel.FK_TblProduct_TblVendors" FromRole="TblVendors" ToRole="TblProduct" />
+        </EntityType>
+        <Association Name="FK_TblCategory_TblCategory">
+          <End Type="SolutionsOnlineSellingModel.TblCategory" Role="TblCategory" Multiplicity="1" />
+          <End Type="SolutionsOnlineSellingModel.TblCategory" Role="TblCategory1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="TblCategory1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductCategoryMapping_TblCategory">
+          <End Type="SolutionsOnlineSellingModel.TblCategory" Role="TblCategory" Multiplicity="1" />
+          <End Type="SolutionsOnlineSellingModel.TblProductCategoryMapping" Role="TblProductCategoryMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCategory">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="TblProductCategoryMapping">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProduct_TblManufacturer">
+          <End Type="SolutionsOnlineSellingModel.TblManufacturer" Role="TblManufacturer" Multiplicity="1" />
+          <End Type="SolutionsOnlineSellingModel.TblProduct" Role="TblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblManufacturer">
+              <PropertyRef Name="ManufacturerId" />
+            </Principal>
+            <Dependent Role="TblProduct">
+              <PropertyRef Name="ManufacturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProduct_TblVendors">
+          <End Type="SolutionsOnlineSellingModel.TblVendors" Role="TblVendors" Multiplicity="1" />
+          <End Type="SolutionsOnlineSellingModel.TblProduct" Role="TblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblVendors">
+              <PropertyRef Name="VendorId" />
+            </Principal>
+            <Dependent Role="TblProduct">
+              <PropertyRef Name="VendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductCategoryMapping_TblProduct">
+          <End Type="SolutionsOnlineSellingModel.TblProduct" Role="TblProduct" Multiplicity="1" />
+          <End Type="SolutionsOnlineSellingModel.TblProductCategoryMapping" Role="TblProductCategoryMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="TblProductCategoryMapping">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TblCalendar">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EventDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EventStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TBLCalendarGallery" Relationship="SolutionsOnlineSellingModel.FK_TBLCalendarGallery_TblCalendar" FromRole="TblCalendar" ToRole="TBLCalendarGallery" />
+        </EntityType>
+        <EntityType Name="TBLCalendarGallery">
+          <Key>
+            <PropertyRef Name="GalleryId" />
+          </Key>
+          <Property Name="GalleryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="ImageTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImageDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="TblCalendar" Relationship="SolutionsOnlineSellingModel.FK_TBLCalendarGallery_TblCalendar" FromRole="TBLCalendarGallery" ToRole="TblCalendar" />
+        </EntityType>
+        <Association Name="FK_TBLCalendarGallery_TblCalendar">
+          <End Type="SolutionsOnlineSellingModel.TblCalendar" Role="TblCalendar" Multiplicity="1" />
+          <End Type="SolutionsOnlineSellingModel.TBLCalendarGallery" Role="TBLCalendarGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCalendar">
+              <PropertyRef Name="EventId" />
+            </Principal>
+            <Dependent Role="TBLCalendarGallery">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ChatMessageDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ChatPrivateMessageDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MasterEmailID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChatToEmailID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ChatPrivateMessageMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ChatUserDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConnectionId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SolutionsOnlineSellingModelStoreContainer" CdmEntityContainer="SolutionsOnlineSellingEntities" >
+          <EntitySetMapping Name="TblCategory">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblCategory">
+              <MappingFragment StoreEntitySet="TblCategory">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblManufacturer">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblManufacturer">
+              <MappingFragment StoreEntitySet="TblManufacturer">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProduct">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblProduct">
+              <MappingFragment StoreEntitySet="TblProduct">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+                <ScalarProperty Name="WebPrice" ColumnName="WebPrice" />
+                <ScalarProperty Name="ActualPrice" ColumnName="ActualPrice" />
+                <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
+                <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProductCategoryMapping">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblProductCategoryMapping">
+              <MappingFragment StoreEntitySet="TblProductCategoryMapping">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblVendors">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblVendors">
+              <MappingFragment StoreEntitySet="TblVendors">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCalendar">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TblCalendar">
+              <MappingFragment StoreEntitySet="TblCalendar">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="EventEnd" ColumnName="EventEnd" />
+                <ScalarProperty Name="EventStart" ColumnName="EventStart" />
+                <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCalendarGallery">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.TBLCalendarGallery">
+              <MappingFragment StoreEntitySet="TBLCalendarGallery">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ImageDescription" ColumnName="ImageDescription" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="GalleryId" ColumnName="GalleryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChatMessageDetail">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.ChatMessageDetail">
+              <MappingFragment StoreEntitySet="ChatMessageDetail">
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChatPrivateMessageDetails">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.ChatPrivateMessageDetails">
+              <MappingFragment StoreEntitySet="ChatPrivateMessageDetails">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ChatToEmailID" ColumnName="ChatToEmailID" />
+                <ScalarProperty Name="MasterEmailID" ColumnName="MasterEmailID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChatPrivateMessageMaster">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.ChatPrivateMessageMaster">
+              <MappingFragment StoreEntitySet="ChatPrivateMessageMaster">
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChatUserDetail">
+            <EntityTypeMapping TypeName="SolutionsOnlineSellingModel.ChatUserDetail">
+              <MappingFragment StoreEntitySet="ChatUserDetail">
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

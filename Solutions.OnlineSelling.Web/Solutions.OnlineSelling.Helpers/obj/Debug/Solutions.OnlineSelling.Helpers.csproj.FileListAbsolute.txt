@@ -1,0 +1,12 @@
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\bin\Debug\Solutions.OnlineSelling.Helpers.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\bin\Debug\Solutions.OnlineSelling.Helpers.pdb
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\obj\Debug\Solutions.OnlineSelling.Helpers.csprojResolveAssemblyReference.cache
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\obj\Debug\Solutions.OnlineSelling.Helpers.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\obj\Debug\Solutions.OnlineSelling.Helpers.pdb
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\bin\Debug\Solutions.OnlineSelling.Helpers.dll.config
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\bin\Debug\EntityFramework.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\bin\Debug\EntityFramework.SqlServer.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\bin\Debug\Newtonsoft.Json.dll
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\bin\Debug\EntityFramework.xml
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\bin\Debug\EntityFramework.SqlServer.xml
+E:\SourceRepository\WORKING DIRECTORY\Solutions.OnlineSelling.Web\Solutions.OnlineSelling.Helpers\bin\Debug\Newtonsoft.Json.xml
