@@ -1,0 +1,2 @@
+# POCapp
+SignalR based chat
